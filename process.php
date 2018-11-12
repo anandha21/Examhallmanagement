@@ -11,11 +11,7 @@ while($row= mysqli_fetch_array($query))
 foreach ($inspector as $select1)
 {
     $select=$select1;
-<<<<<<< HEAD
     $qu1 = mysqli_query($conn,"SELECT capacity,status FROM finalroom where room_name='$select' ");
-=======
-    $qu1 = mysqli_query($conn,"SELECT capacity,status FROM room21 where room_name='$select' ");
->>>>>>> a0c60a995dcfc34babe70e8b9fd0bf1ccc749559
                 $row = mysqli_fetch_assoc($qu1);
 
         $se=$row['capacity'];
@@ -123,7 +119,6 @@ foreach ($inspector as $select1)
             $rows=6;
             $cols=8;
         }
-<<<<<<< HEAD
         $qu1 = mysqli_query($conn,"SELECT * FROM finalroom where room_name='$select' ");
         $row = mysqli_fetch_assoc($qu1);
         $se=$row['capacity'];
@@ -140,6 +135,7 @@ foreach ($inspector as $select1)
  $dels=mysqli_query($conn, "DELETE FROM $select LIMIT $s");
  $ins12=mysqli_query($conn,"INSERT INTO temp2 (Reg_no,Course) SELECT Reg_no,Course FROM $select LIMIT $s");
  $dels1=mysqli_query($conn, "DELETE FROM $select LIMIT $s");   
+ 
         echo $se;
  $i=0;
  $r=$coun1/2;
@@ -159,42 +155,10 @@ foreach ($inspector as $select1)
 
 for($tr=0;$tr<$rows;$tr++){
    
-=======
-        
-        //for ($i = 0; $i < count($inspector1); $i++) { unset($inspector1[$i]); }  
-$qi1 = mysqli_query($conn,"SELECT Reg_no FROM $select ");
- unset($inspector1);
-
-        while($row = mysqli_fetch_array($qi1))
-    {
-
-        $inspector1 [] = $row['Reg_no'];
-        $inspector2 [] = $row['Reg_no'];
-
-    }
- //foreach($inspector1 as $sep)
-       // {
-        
-           // echo "$sep";
-      
-       // }
-        $coun1 = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM $select"));
-        echo $se;
- $i=0;
- $r=$coun1/2;
- $j=$coun1/2;
- 
-if($coun1<=$se)
-{
-    echo "<table border='1'>";
-
-for($tr=0;$tr<$rows;$tr++){
->>>>>>> a0c60a995dcfc34babe70e8b9fd0bf1ccc749559
 
     echo "<tr>";
     
         for($td=0;$td<$cols/2;$td++){
-<<<<<<< HEAD
     
                echo "<td> $inspector1[$i] </td>";
 
@@ -234,55 +198,6 @@ for($tr=0;$tr<$rows;$tr++){
         for($td=0;$td<$cols;$td++){ 
                echo "<td> $inspector1[$i]</td>";
                $i++;           
-=======
-                        if($i<=$r)
-                        {
-               echo "<td> $inspector1[$i] </td>";
-              // $del221= mysqli_query($conn, "DELETE FROM $select where Reg_no='$inspector1[$i]'");
-
-        $i++;
-                        }
- else {
-                            break;
- }
-               echo "<td> $inspector1[$j]</td>";
-          //  $del31= mysqli_query($conn, "DELETE FROM $select where Reg_no='$inspector1[$i]'");
-
-               $j++;               
-
-               
-        }
-    echo "</tr>";
-}
-
-echo "</table>";
-}
- else {
-
-echo "<table border='1'>";
-    
-
-
-for($tr=0;$tr<$rows;$tr++){
-
-    echo "<tr>";
-        for($td=0;$td<$cols/2;$td++){
-            if($i<=$r)
-            {
-               echo "<td> $inspector1[$i] </td>";
-                          $del221= mysqli_query($conn, "DELETE FROM $select where Reg_no='$inspector1[$i]'");
-
-               $i++; 
-               
-            }
- else {
-                continue;
- }
-               echo "<td> $inspector1[$j]</td>";
-                      $del31= mysqli_query($conn, "DELETE FROM $select where Reg_no='$inspector1[$j]'");
-
-               $j++;           
->>>>>>> a0c60a995dcfc34babe70e8b9fd0bf1ccc749559
 
                
         }
@@ -291,14 +206,9 @@ for($tr=0;$tr<$rows;$tr++){
 
 echo "</table>";
  }
-<<<<<<< HEAD
  }
      
  
         //for ($i = 0; $i < count($inspector1); $i++) { unset($inspector1[$i]); }  
 
-=======
-
-}
->>>>>>> a0c60a995dcfc34babe70e8b9fd0bf1ccc749559
 ?>
