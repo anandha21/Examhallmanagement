@@ -20,8 +20,10 @@ if(isset($_POST['Submit'])){
 		move_uploaded_file($_FILES['file']['tmp_name'], $uploadFilePath);
 
 		$Reader = new SpreadsheetReader($uploadFilePath);
+                
 
 		$totalSheet = count($Reader->sheets());
+                
 
 		echo "You have total ".$totalSheet." sheets".
 
@@ -56,9 +58,14 @@ if(isset($_POST['Submit'])){
 	        }
 
 		}
+                $del23= mysqli_query($conn, "DELETE FROM student where Course='Course' AND Branch='Branch'");
+$del2= mysqli_query($conn, "DELETE FROM student where Course=' ' AND Branch=' '");
+                
                 $qry1=mysqli_query($conn,"SELECT * FROM student WHERE Course='".$course."' AND Branch='".$branch."'");
+                
                 $count = mysqli_num_rows($qry1);
                                            echo $count;
+                                           
                 	 $query10 = "insert into course(Course,Branch,total) values('".$course."','".$branch."','".$count."')";
                           $mysqli->query($query10);
                            

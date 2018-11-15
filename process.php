@@ -1,6 +1,11 @@
 <?php
 $conn = new mysqli('localhost', 'root', '', 'mace') 
 or die ('Cannot connect to db'); //connection establishment
+header('Content-type: application/excel');
+$filename = 'filename.xls';
+header('Content-Disposition: attachment; filename='.$filename);
+
+$ins1234=mysqli_query($conn,"INSERT INTO finalroom (No, room_name, capacity, status,occupy) SELECT No, room_name, capacity, status, occupy FROM `room21` ");
 $query = mysqli_query($conn,"SELECT room_name,capacity,status FROM finalroom");
 while($row= mysqli_fetch_array($query))
     {
@@ -140,6 +145,7 @@ foreach ($inspector as $select1)
  $i=0;
  $r=$coun1/2;
  $j=0;
+ $k=1;
       $qi1 = mysqli_query($conn,"SELECT Reg_no FROM temp1 ");
         while($row = mysqli_fetch_array($qi1))
     {
@@ -150,20 +156,38 @@ foreach ($inspector as $select1)
     {
         $inspector2 [] = $row['Reg_no'];
     }
- 
-    echo "<table border='1'>";
+ echo "<table border='1'>";
+
+    echo '<tr>';
+     echo" <td align=center colspan=$cols >Mar Athanasius College of Engineering, Kothamangalam</td>";
+ echo"</tr>";
+echo"<tr>";
+ echo" <td align=center colspan=$cols >Exam Hall Details for the conduct of KTU University examination </td>";
+ echo"</tr>";
+ echo "<tr>";
+  echo"<td >Room No</td>";
+  echo"<td >$select</td>";
+  echo"<td colspan=2 >Date</td>";
+  echo"<td colspan=3 ></td>";
+  echo"<td colspan=3 >Total Students</td>";
+echo" </tr>";
+//echo "</table>";
+
+ //echo "<table border='1'>";
 
 for($tr=0;$tr<$rows;$tr++){
-   
+  
+
 
     echo "<tr>";
-    
+     echo "<td>DESK $k</td>";
+   $k++;
         for($td=0;$td<$cols/2;$td++){
     
-               echo "<td> $inspector1[$i] </td>";
+               echo "<td > $inspector1[$i] </td>";
 
                      $i++;
-               echo "<td> $inspector2[$j]</td>";
+               echo "<td > $inspector2[$j]</td>";
 
                      $j++;                          
         }
@@ -174,7 +198,10 @@ $dels=mysqli_query($conn, "DELETE FROM temp1 LIMIT $s");
  $ins12=mysqli_query($conn,"INSERT INTO $select (Reg_no,Course) SELECT Reg_no,Course FROM temp2 LIMIT $s");
  $dels1=mysqli_query($conn, "DELETE FROM temp2 LIMIT $s");   
 echo "</table>";
-
+for($o=0;$o<=10;$o++)
+{
+echo "<br/><br/>";
+}
 
             
         }
@@ -199,16 +226,20 @@ for($tr=0;$tr<$rows;$tr++){
                echo "<td> $inspector1[$i]</td>";
                $i++;           
 
-               
+              
         }
     echo "</tr>";
 }
 
 echo "</table>";
+for($o=0;$o<=10;$o++)
+{
+echo "<br/><br/>";
+}
  }
  }
      
- 
+ $qw= mysqli_query($conn,"DELETE FROM finalroom")
         //for ($i = 0; $i < count($inspector1); $i++) { unset($inspector1[$i]); }  
 
 ?>
