@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
   <link rel="stylesheet" media="screen" href="css/style.css">
-</head>
-<body>
-
-<?php
+  
+  <?php
 require_once 'db_config.php';
 if (isset($_POST['submit'])){
 	$username = $_POST['uname'];
@@ -26,10 +24,7 @@ if ($count <= 1){
 }
 }
 ?>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
+  <style>
 body {font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -154,29 +149,172 @@ span.psw {
 .content {
     max-width: 500px;
     margin: auto;
-    background: white;
     padding: 10px;
     text-align: center;
+    position: fixed;
+  top: 40%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
 }
 
 </style>
 </head>
+
+
 <body>
+    
+    <div id="particles-js"></div>
+
+    <script src="../particles.js"></script>
+<script src="js/app.js"></script>
+
+<script src="js/lib/stats.js"></script>
+    <script>
+  //https://github.com/VincentGarreau/particles.js/
+
+particlesJS("particles-js", {
+  "particles": {
+    "number": {
+      "value": 400,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "image",
+      "stroke": {
+        "width": 3,
+        "color": "#fff"
+      },
+      "polygon": {
+        "nb_sides": 5
+      },
+      "image": {
+        "src": "http://www.dynamicdigital.us/wp-content/uploads/2013/02/starburst_white_300_drop_2.png",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.7,
+      "random": false,
+      "anim": {
+        "enable": false,
+        "speed": 1,
+        "opacity_min": 0.1,
+        "sync": false
+      }
+    },
+    "size": {
+      "value": 5,
+      "random": true,
+      "anim": {
+        "enable": false,
+        "speed": 20,
+        "size_min": 0.1,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false,
+      "distance": 50,
+      "color": "#ffffff",
+      "opacity": 0.6,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 5,
+      "direction": "bottom",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": true,
+        "rotateX": 300,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode":  "bubble"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "resize": true
+    },
+    "modes": {
+      "grab": {
+        "distance": 150,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 200,
+        "size": 40,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.2
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
+        </script>
+        
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+        
+
+
+
+
+
     <div class="content">
 
-        
         
         <h1> MACE  EXAM HALL MASTER</h1>
         
         
         
-<h4> Login </h4>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
     </div>
 <div id="id01" class="modal">
   
-    <form name="" class="modal-content animate" method="post">
+    <form name="j" class="modal-content animate"  method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="MACE.JPG" alt="Avatar" class="avatar">
@@ -200,54 +338,9 @@ span.psw {
     </div>
   </form>
 </div>
+    
 
-<script>
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
 
 </body>
 </html>
-<!-- count particles -->
-<div class="count-particles">
-  <span class="js-count-particles">--</span> particles
-</div>
 
-<!-- particles.js container -->
-<div id="particles-js"></div>
-
-<!-- scripts -->
-<script src="../particles.js"></script>
-<script src="js/app.js"></script>
-
-<!-- stats.js -->
-<script src="js/lib/stats.js"></script>
-<script>
-  var count_particles, stats, update;
-  stats = new Stats;
-  stats.setMode(0);
-  stats.domElement.style.position = 'absolute';
-  stats.domElement.style.left = '0px';
-  stats.domElement.style.top = '0px';
-  document.body.appendChild(stats.domElement);
-  count_particles = document.querySelector('.js-count-particles');
-  update = function() {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-    }
-    requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-</script>
-
-</body>
-</html>

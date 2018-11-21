@@ -28,7 +28,6 @@ if(isset($_POST['Submit'])){
 		echo "You have total ".$totalSheet." sheets".
 
 		$html="<table border='1'>";
-		$html.="<tr><th>Student Name</th><th>REGNO</th><th>Branch</th><th>Course</th></tr>";
 
 		/* For Loop for all sheets */
 		for($i=0;$i<$totalSheet;$i++){
@@ -42,13 +41,8 @@ if(isset($_POST['Submit'])){
 				$regno = isset($Row[1]) ? $Row[1] : '';
                                    $branch = isset($Row[2]) ? $Row[2] : '';
 				$course = isset($Row[3]) ? $Row[3] : '';
-                               
-				$html.="<td>".$student."</td>";
-				$html.="<td>".$regno."</td>";
-                                $html.="<td>".$branch."</td>";
-				$html.="<td>".$course."</td>";
+                           ;
 
-				$html.="</tr>";
 
 				$query = "insert into student(Student,Register,Branch,Course) values('".$student."','".$regno."','".$branch."','".$course."')";
                                            
