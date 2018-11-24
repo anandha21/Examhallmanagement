@@ -5,6 +5,8 @@ $del= mysqli_query($conn, "DELETE FROM student where Course='Course' AND Branch=
 $de2= mysqli_query($conn, "DELETE FROM student where Course=' ' AND Branch=' '");
 $insertroom=mysqli_query($conn,"INSERT INTO finalroom (No, room_name, capacity, status,occupy) SELECT No, room_name, capacity, status, occupy FROM `room21` ");
 $query = mysqli_query($conn,"SELECT room_name,capacity,status FROM finalroom");
+$insertroom=mysqli_query($conn,"INSERT INTO course1 (Course,Branch,total) SELECT Course,Branch,total FROM `course` ");
+
 while($row= mysqli_fetch_array($query))
     {
 
@@ -385,6 +387,7 @@ echo "<br/><br/>";
      $i=0;
      $qi1 = mysqli_query($conn,"SELECT Reg_no FROM $select ");
  unset($inspector1);
+ $k=1;
        while($row = mysqli_fetch_array($qi1))
     {
 
@@ -395,9 +398,29 @@ echo "<br/><br/>";
      
      
      echo "<table border='1'>";
+     
+     
+     
+    echo '<tr>';
+     echo" <td align=center colspan=$cols >Mar Athanasius College of Engineering, Kothamangalam</td>";
+ echo"</tr>";
+echo"<tr>";
+ echo" <td align=center colspan=$cols >Exam Hall Details for the conduct of KTU University examination </td>";
+ echo"</tr>";
+ echo "<tr>";
+  echo"<td >Room No</td>";
+  echo"<td >$select</td>";
+  echo"<td colspan=2 >Date</td>";
+  echo"<td colspan=3 ></td>";
+  echo"<td colspan=3 >Total Students</td>";
+echo" </tr>";
+
+
    
 for($tr=0;$tr<$rows;$tr++){
     echo "<tr>";
+    echo "<td>DESK $k</td>";
+   $k++;
         for($td=0;$td<$cols;$td++){ 
                echo "<td> $inspector1[$i]</td>";
                $i++;           

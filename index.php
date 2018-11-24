@@ -41,7 +41,6 @@ input[type=text], input[type=password] {
 /* Set a style for all buttons */
 button {
     background-color: #4CAF50;
-    color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
@@ -153,7 +152,7 @@ span.psw {
     text-align: center;
     position: fixed;
   top: 40%;
-  left: 50%;
+  left: 43%;
   margin-top: -50px;
   margin-left: -100px;
 }
@@ -179,7 +178,7 @@ particlesJS("particles-js", {
       "value": 400,
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 700
       }
     },
     "color": {

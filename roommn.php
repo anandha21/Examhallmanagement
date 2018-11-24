@@ -22,6 +22,16 @@ if (!$query) {
 			padding: 0;
 			margin: 0;
 		}
+                .new{
+                         display: inline;
+
+                     padding: 10px 20px;
+                border-radius: 4px;
+                 position: absolute;
+                 bottom: -500px;
+                 right: 250px;
+                }
+                
 		table {
 			margin: auto;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
@@ -119,11 +129,52 @@ if (!$query) {
 					<td>'.$row['room_name'].'</td>
 					<td>'.$row['capacity'].'</td>
                                          <td>'.$row['status'].'</td>
-                                             <td> <a class="button" href="edit.php">Edit</a> </td>
-
+                                        <td><input type="button" name="delete" value="delete"></td>
 				</tr>';
                         $no++;
-		}?>
+                        
+      
+		}
+                                  if($_GET){
+    if(isset($_GET['delete'])){
+        delete();
+    }//elseif(isset($_GET['select'])){
+        //select();
+    //}
+}
+
+    function delete()
+    {
+    	$delete1 =("DELETE FROM `usrdata` WHERE id = '$id'");
+        $result = mysqli_query($conn,$delete1) or die(mysqli_error());
+        
+	echo "record deleted";
+   
+   
+ 
+    }
+    ?>
+                    
+<div class="new">
+    <form action="insert.php" method="post"> 
+        <label>Room Name:</label>
+<input class="input" name="name" type="text" value="">
+<label>Capacity</label>
+<input class="input" name="cappa" type="text" value="">
+<label>Seating Style:</label>
+<input class="input" name="seat" type="text" value="">
+<label>Status:</label>
+<input class="input" name="stat" type="text" value="">
+<input class="submit" name="submit" type="submit" value="Insert">
+    </form>
+        
+    
+    
+    
+
+         </div>           
+
+       
 		</tbody>
 		<tfoot>
 			<tr>

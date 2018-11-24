@@ -1,3 +1,7 @@
+
+
+
+
 <?php
 
 require('library/php-excel-reader/excel_reader2.php');
@@ -66,6 +70,10 @@ $del2= mysqli_query($conn, "DELETE FROM student where Course=' ' AND Branch=' '"
 
 
 		$html.="</table>";
+                echo'<script>
+    alert(" <br />Data Inserted in dababase");
+
+</script>';
 		echo $html;
 		echo "<br />Data Inserted in dababase";
 

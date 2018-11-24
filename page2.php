@@ -1,3 +1,9 @@
+<?php
+$conn = new mysqli('localhost', 'root', '', 'mace') 
+or die ('Cannot connect to db');
+$sum=0;
+?>
+
 <HTML>
 <HEAD>
     <STYLE>
@@ -46,29 +52,26 @@ button {
 .container{
       max-width: 500px;
     margin: auto;
-    background: white;
     padding: 10px;
     text-align: center;
     position: fixed;
-  top: 40%;
+  top: 30%;
   left: 42%;
   margin-top: -50px;
   margin-left: -100px;
     
 }
 .form-group2{ 
-  color: white;
   padding: 10px 20px;
   border-radius: 4px;
   border-color: #46b8da;
 position: fixed;
-  bottom: -4px;
+  bottom: -2px;
   right: 10px;
       cursor: pointer;
 
 }
-        </style>
-	<STYLE>
+       
 		body {
 			font-family: Arial;
 		}
@@ -76,7 +79,6 @@ position: fixed;
                 .container{
       max-width: 500px;
     margin: auto;
-    background: white;
     padding: 10px;
     text-align: center;
     position: fixed;
@@ -174,13 +176,12 @@ position: fixed;
 			}
 		}
 	</SCRIPT>
-        <div class="container">
-
 	<TITLE>Listbox JavaScript functions</TITLE>
 </HEAD>
-<body>
-    
-     <div id="particles-js"></div>
+<BODY>    
+
+<div id="particles-js">
+            <div class="container">
 
     <script src="../particles.js"></script>
 <script src="js/app.js"></script>
@@ -305,11 +306,7 @@ particlesJS("particles-js", {
     
     
     
-<?php
-$conn = new mysqli('localhost', 'root', '', 'mace') 
-or die ('Cannot connect to db');
-$sum=0;
-?>
+
           
 <table>
 <tr valign="top">
@@ -368,9 +365,7 @@ echo'</SELECT>';
 
     <input type="submit" name="submit1"  value="CONFORM SELECTED SEATS" />
       </form>
-</BODY>
-</HTML>
-</div>
+
 <?php
 if(isset($_POST['submit1']))
 {
@@ -433,10 +428,7 @@ $qry='SELECT SUM(capacity) from `room`';
 
                          ?>
   <?php } ?>
-<HTML>
-    <HEAD>
-        
-    </HEAD>
+
         <div class="form">
         <form action="" method="post">
 Total Students: <input type="text" name="studno" value="<?php echo $rowcount; ?>">
@@ -459,9 +451,12 @@ Seats Available: <input type="text" name="LastName" value="<?php echo ($mark-$su
 </div>
     </div>
     </div>
-        
+       </div> 
+       </div> 
 
-</HTML
+
+</BODY>
+</HTML>
 <?php
 if(isset($_POST['submit2']))
 {

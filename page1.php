@@ -14,7 +14,6 @@ display: inline-block;
 border: none;
 }
 .form-group2{ 
-  color: white;
   padding: 10px 20px;
   border-radius: 4px;
   border-color: #46b8da;
@@ -32,10 +31,7 @@ transition: all 0.4s ease 0s;
     position: relative;
 }
 
-#scrollable {
-    overflow-y: auto;
-    /* Styles for your scrollable div here. */
-}
+
 
 #fixed-button {
     position: absolute;
@@ -56,8 +52,6 @@ button {
 }
 .container{
       max-width: 500px;
-    margin: auto;
-    background: white;
     padding: 10px;
     text-align: center;
     position: fixed;
@@ -73,8 +67,8 @@ button {
      
 }
 .form-group1{
-         display: inline;
-padding: 14px 10px;
+    display: inline;
+    padding: 14px 10px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
@@ -262,6 +256,7 @@ or die ('Cannot connect to db');
         $ins1=mysqli_query($conn,"DELETE  FROM `student` ");
 
 if ($ins1) {
+
     echo "Record deleted successfully";
 } else {
     echo "Error deleting record: " . $conn->error;
@@ -308,6 +303,10 @@ or die ('Cannot connect to db');
                         $ins281=mysqli_query($conn,"DELETE  FROM `finalroom` ");
                                                 $ins282=mysqli_query($conn,"DELETE  FROM `temp` ");
                                                                 $ins281=mysqli_query($conn,"DELETE  FROM `roomcourse1` ");
+                                                                echo'<script>
+    alert(" Record deleted successfully");
+
+</script>';
 
 
 
